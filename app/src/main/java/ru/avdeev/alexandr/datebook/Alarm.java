@@ -15,6 +15,7 @@ import android.util.Log;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -55,8 +56,13 @@ public class Alarm {
 
         calendar.set(Calendar.MINUTE, timePicker.getCurrentMinute());   // получим выбранное текущее время
 
+    }
 
+    public void getCurrentTime(Calendar date, Calendar calendar) {
 
+        calendar.set(Calendar.HOUR_OF_DAY, date.get(Calendar.HOUR_OF_DAY)); // получим выбранное текущее время
+
+        calendar.set(Calendar.MINUTE, date.get(Calendar.MINUTE));   // получим выбранное текущее время
 
     }
 

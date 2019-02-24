@@ -4,16 +4,12 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     android:orientation="vertical">
-    <TextView
-        style="?android:listSeparatorTextViewStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/onejob_title_label"/>
+
     <EditText
         android:id="@+id/onejob_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/onejob_title_enter"/>
+        android:hint="Заголовок"/>
     <TextView
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
@@ -22,13 +18,14 @@
     <Button
         android:id="@+id/onejob_date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="@string/setNotification"/>
 
     <CheckBox
         android:id="@+id/onejob_solved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/onejob_solved_label"/>
+        android:text="Цель выполнена "/>
 
     <EditText
         android:id="@+id/onejob_multitext"

@@ -26,6 +26,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
@@ -37,6 +38,7 @@ public class NoteFragment  extends Fragment {
     private Button mDateButton;             // заполнение даты дела будет на кнопке
     private CheckBox mSolvedCheckBox;      //  состояние выполнения (сделано да/нет)
     private EditText mDescField;          //  подробное описание дела / задания
+    private Alarm alarm;
 
     private static final String DIALOG_DATE = "DialogDate"; // константа для метки DatePickerFragment
 
@@ -64,12 +66,12 @@ public class NoteFragment  extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-      setHasOptionsMenu(true); // получение обратных вызовов так как меню создаем во фрагменте
+        setHasOptionsMenu(true); // получение обратных вызовов так как меню создаем во фрагменте
 
         UUID noteId = (UUID) getArguments().getSerializable(ARG_NOTE_ID); // читаем дополнение
 
         mOneNote = Notes.get(getActivity()).getNote(noteId); // получаем заметку по которой щелкнули
-
+        alarm=new Alarm();
     }
 
 
@@ -213,6 +215,7 @@ public class NoteFragment  extends Fragment {
                 // управлением экземпляра FragmentManager активности-хоста
                 dialog.setTargetFragment(NoteFragment.this, REQUEST_DATE); // назначаем целевым фрагментом
                 dialog.show(manager, DIALOG_DATE); // показать диалоговое окно
+
             }
         });
 
@@ -248,10 +251,18 @@ public class NoteFragment  extends Fragment {
             return;
         }
         if (requestCode == REQUEST_DATE) { // если получаем информацию даты из
-            Date date = (Date) data
-                    .getSerializableExtra(DatePickerFragment.EXTRA_DATE); // получаем дату
+            Date date = (Date) data.getSerializableExtra(DatePickerFragment.EXTRA_DATE); // получаем дату
+
+            // Запланировать будильник
             mOneNote.setDate(date); // задаем дату
             updateDate(); // устанавливаем новую дату на кнопку
+            Calendar calendar = Calendar.getInstance();
+
+            Calendar plan = Calendar.getInstance();
+            plan.setTime(date);
+            alarm.getCurrentTime(plan , calendar);
+
+            alarm.scheduleAlarm(getActivity() , calendar);
         }
     }
 

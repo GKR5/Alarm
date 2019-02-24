@@ -20,4 +20,5 @@
     <string name="reminder">напоминание</string>
     <string name="anticall">антидозвон</string>
     <string name="time_picker_title">введите время</string>
+    <string name="setNotification">Когда оповестить</string>
 </resources>
