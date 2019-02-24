@@ -149,7 +149,6 @@ public class ReminderFragment extends Fragment {
      * устанавливаем текст в поле
      * @param s строка
      */
-
     private void setTxt(String s) {
 
         textView.setText(s);

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background">
 
 
     <TimePicker
@@ -17,7 +18,8 @@
         android:layout_width="243dp"
         android:layout_height="35dp"
         android:text="TextView"
-        android:layout_below="@id/dialog_time_picker"/>
+        android:layout_below="@id/dialog_time_picker"
+        android:textColor="#ffff"/>
 
     <Button
         android:id="@+id/buttonOn"
