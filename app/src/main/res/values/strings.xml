@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Умный Будильник</string>
+
+    <string name="gallery">галерея</string>
+    <string name="slideshow">слайдшоу</string>
+    <string name="tools">настройки</string>
+    <string name="import1">импорт</string>
+    <string name="onejob_title_label">заголовок</string>
+    <string name="onejob_title_enter">текст</string>
+    <string name="onejob_details_label">детали</string>
+    <string name="onejob_solved_label">состояние</string>
+    <string name="date_picker_title">выбирите дату</string>
+    <string name="new_note">New Note</string>
+    <string name="show_subtitle">показать</string>
+    <string name="hide_subtitle">скрыть</string>
+    <string name="subtitle_format">%1$d notes</string>
+    <string name="delete_note">удалить</string>
+    <string name="finance">финансы</string>
+    <string name="list">список</string>
+    <string name="reminder">напоминание</string>
+    <string name="anticall">антидозвон</string>
+    <string name="time_picker_title">введите время</string>
+</resources>
