@@ -14,9 +14,7 @@ import android.widget.Toast;
 
 
 /*
-
 Сервис запускает в строке состояния уведомление
-
  */
 
 public class MyAlarmService extends Service {
@@ -36,23 +34,21 @@ public class MyAlarmService extends Service {
         Log.d("vip", "HELLO");
         NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+        final String CHANEL_ID = "CHANEL_ID";
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANEL_ID)
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setAutoCancel(true)     // по нажатию удаляем из строки состояния уведомление
                         .setContentTitle("My notification")
-                        .setContentText("Будильник сработал!");
+                        .setContentText("Пришло время целей");
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            final String CHANEL_ID = "CHANEL_ID";
             NotificationChannel channel = new NotificationChannel(CHANEL_ID, "name", NotificationManager.IMPORTANCE_HIGH);
             mBuilder.setChannelId(CHANEL_ID);
             mNotificationManager.createNotificationChannel(channel);
         }
 
 
-        Intent resultIntent = new Intent(getApplicationContext(), ResultActivity.class);
+        Intent resultIntent = new Intent(getApplicationContext(),MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 
@@ -62,11 +58,11 @@ public class MyAlarmService extends Service {
                 0,
                 resultIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT
-        );//stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        );
 
         mBuilder.setContentIntent(resultPendingIntent);
 
-//
+
         mNotificationManager.notify(1, mBuilder.build());
 
         stopService(intent);

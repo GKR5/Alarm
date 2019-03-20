@@ -117,16 +117,16 @@ public class NoteFragment  extends Fragment {
 
                 Notes.get(getActivity()).deleteNote(mOneNote);
 
-                getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
-
+//                getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+//                getActivity().getSupportFragmentManager().popBackStack();
+                getActivity().finish();
             default:
                 return super.onOptionsItemSelected(item);
 
         }
 
-
-
     }
+
 
 
     /**

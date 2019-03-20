@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-           setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
          mDrawerLayout = findViewById(R.id.drawer_layout);
 
@@ -58,36 +58,35 @@ public class MainActivity extends AppCompatActivity  {
                         Fragment fragment;
 
                         switch (menuItem.getItemId()) {
-
                             case R.id.list:
-
                                 fragment = new NoteListFragment();
-
                                 break;
-
-
 
                            case R.id.reminder:
-
-                               fragment = new  ReminderFragment();
-
+                                fragment = new  ReminderFragment();
                                 break;
-
 
                             default:
                                 fragment = new NoteListFragment();
 
                         }
 
-                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.content_frame, fragment);
-                        ft.addToBackStack(null);
-                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE); // Для замены текущего фрагмента используется транзакция фрагмента
-                        ft.commit();
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.content_frame, fragment)
+                                .addToBackStack(null)
+                                .commit();
 
                         return true;
                     }
                 });
+
+        // Задание фрагмента по умолчанию (список новостей)
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_frame, new NoteListFragment())
+                .addToBackStack(null)
+                .commit();
 
 
 

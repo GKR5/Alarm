@@ -12,7 +12,7 @@
     android:orientation="vertical"
     android:padding="8dp"
     tools:layout_editor_absoluteY="81dp"
-    android:background="@color/background">
+    android:background="#999">
 
 <TextView
     android:id="@+id/note_title"
@@ -21,9 +21,10 @@
     android:layout_marginEnd="8dp"
     android:layout_marginStart="16dp"
 
+
     android:layout_marginTop="16dp"
     android:text="Note Title"
-    android:textColor="@android:color/white"
+    android:textColor="@android:color/black"
     android:textSize="18sp"
     app:layout_constraintEnd_toStartOf="@+id/note_solved"
     app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,7 @@
     app:layout_constraintEnd_toStartOf="@+id/note_solved"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/note_title"
-    android:textColor="@android:color/white"
+    android:textColor="@android:color/black"
     />
 
 <ImageView
